@@ -64,6 +64,23 @@ class Employee {
 	public static int compareByName(Employee emp1, Employee emp2) {
 		return emp1.getEmpName().compareTo(emp2.getEmpName());
 	}
+	
+	public static List<Employee> empEvenIdList(List<Employee> empList) {
+	
+		List<Employee> evenList = new ArrayList<Employee>();
+		
+		for(Employee emp: empList) {
+			if(emp.getEmpId() %2 == 0) {
+				evenList.add(emp);
+				
+			}
+			
+		}
+		return evenList;
+	}
+	
+	
+	
 
 }
 
@@ -72,11 +89,13 @@ public class App {
 	public static void main(String[] args) {
 
 		List<Employee> empList = Employee.getEmpList();
+		List<Employee> evenIdList = Employee.empEvenIdList(empList);
+		System.out.println(evenIdList);
 		
 //		empList.sort((emp1, emp2)-> Employee.compareByName(emp1, emp2));
 		
-		empList.sort(Employee::compareByName);
-		System.out.println(empList);
+	//	empList.sort(Employee::compareByName);
+		//System.out.println(empList);
 
 	}
 }
